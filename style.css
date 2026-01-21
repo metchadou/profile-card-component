@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap');
+
+:root {
+    /* Colors */
+    --color-text-primary: hsl(229, 23%, 23%); /*Navy 950*/
+    --color-text-muted: hsl(227, 10%, 46%); /*Gray 500: */
+
+    /* Font sizes */
+    --font-size-sm: 11px;
+    --font-size-base: 13px;
+    --font-size-lg: 18px;
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-strong: 700;
+}
+
+.text-primary { color: var(--color-text-primary); }
+.text-muted { color: var(--color-text-muted); }
+
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+
+.text-regular { font-weight: var(--font-weight-regular); }
+.text-strong { font-weight: var(--font-weight-strong); }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: hsl(185, 75%, 39%);
+    position: relative;
+}
+
+/*BACKGROUND PATTERNS STYLES*/
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 50vw;
+    background-repeat: no-repeat;
+    background-size: 130%; /*Background-image is always 30% bigger than its container no matter the size of the latter. Increase it on smaller screens.*/
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+    top: 0;
+    height: 70vh;
+    background-image: url('images/bg-pattern-top.svg');
+    background-position: bottom right; /*Ensures bottom right of the image remains visible even when it grows beyond its container. In other words, the top left of the background image is cropped as we increase background-size.*/
+}
+
+body::after {
+    bottom: 0;
+    right: 0;
+    height: 50vh;
+    background-image: url('images/bg-pattern-bottom.svg');
+    background-position: top left; /*Ensures top left of the image remains visible even when it grows beyond its container. In other words, the bottom right of the background image is cropped as we increase background-size.*/
+}
+
+/**/
+
+.card-container {
+    flex: auto;
+}
+
+.attribution-container {
+    height: 25px;
+}
+
+.card {
+    width: 280px;
+    height: 300px;
+    /* border: 1px solid red; */
+    background-color: hsl(225, 10%, 92%);
+    border-radius: 12px;
+    overflow: hidden; /*Fixes child div.card-img-container covering rounded corners*/
+    box-shadow: -10px 10px 76px -30px #696C75;
+    gap: 40px;
+}
+
+.card-img-container {
+    height: 105px;
+    background-image: url('images/bg-pattern-card.svg');
+    position: relative;
+}
+
+.card-img-container img {
+    width: 80px;
+    border-radius: 50%;
+    border: solid 5px hsl(225, 10%, 92%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 15%);
+}
+
+.card-content {
+    flex: auto;
+    padding: 10px 20px 30px;
+}
+
+.card-bio {
+    gap: 5px;
+    align-self: center;
+}
+
+.card-bio-top {
+    align-items: baseline;
+    gap: 5px;
+}
+
+.card-stat {
+    flex-direction: column-reverse;
+    flex: auto;
+}
+
+@media (max-width: 768px) {
+    body::before, body::after {
+    background-size: 320%; /*Background-image is always 30% bigger than its container no matter the size of the latter. Increase it on smaller screens.*/
+}
+}
