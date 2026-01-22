@@ -111,9 +111,8 @@ body::after {
     border-radius: 50%;
     border: solid 5px hsl(225, 10%, 92%);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 15%);
+    top: 65%;
+    left: 35%;
 }
 
 .card-content {
